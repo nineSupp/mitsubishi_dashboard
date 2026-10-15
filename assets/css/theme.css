@@ -1,0 +1,516 @@
+    /* Google Fonts Import */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Global App Background */
+    .stApp {
+        background-color: #F8F9FA;
+    }
+
+    /* Main Page Headings */
+    .stApp h1, .stApp h2, .stApp h3, .stApp p {
+        color: #1E1E1E !important;
+    }
+
+    /* Main Content Padding Adjustment */
+    .block-container {
+        padding-top: 6rem !important;
+        padding-bottom: 9rem !important;
+    }
+
+    /* ========================================================= */
+    /* 1. Header Buttons (Simple Color Tinting)                  */
+    /* ========================================================= */
+    header[data-testid="stHeader"] {
+        background-color: transparent !important;
+        z-index: 100000 !important;
+        height: 65px !important;
+    }
+
+    /* Shared timing so header + sidebar buttons animate identically */
+    header[data-testid="stHeader"] button,
+    header[data-testid="stHeader"] [data-testid="stHeaderNavButton"],
+    header[data-testid="stHeader"] [data-testid="stExpandSidebarButton"],
+    [data-testid="stSidebarCollapsedControl"] button {
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 6px !important;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out !important;
+    }
+
+    /* Icons: white by default (colour only - setting `fill` on every child
+       fills the icon's invisible bounding path and turns the dots into a square). */
+    header[data-testid="stHeader"] button *,
+    header[data-testid="stHeader"] [data-testid="stHeaderNavButton"] *,
+    header[data-testid="stHeader"] [data-testid="stExpandSidebarButton"] *,
+    [data-testid="stSidebarCollapsedControl"] button * {
+        color: #FFFFFF !important;
+        transition: color 0.2s ease-in-out !important;
+    }
+
+    /* Hover: Red background, black icon */
+    header[data-testid="stHeader"] button:hover,
+    header[data-testid="stHeader"] [data-testid="stHeaderNavButton"]:hover,
+    header[data-testid="stHeader"] [data-testid="stExpandSidebarButton"]:hover,
+    [data-testid="stSidebarCollapsedControl"] button:hover {
+        background-color: #E60012 !important;
+    }
+
+    header[data-testid="stHeader"] button:hover *,
+    header[data-testid="stHeader"] [data-testid="stHeaderNavButton"]:hover *,
+    header[data-testid="stHeader"] [data-testid="stExpandSidebarButton"]:hover *,
+    [data-testid="stSidebarCollapsedControl"] button:hover * {
+        color: #000000 !important;
+    }
+
+    .top-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 65px;
+        background: rgba(20, 20, 20, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 8rem 0 4rem;
+        z-index: 99990;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .top-navbar::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #E60012 0%, #005BAC 50%, #E60012 100%);
+    }
+
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .nav-title {
+        color: #FFFFFF;
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    .nav-title span {
+        color: #E60012;
+        font-weight: 700;
+    }
+
+    .nav-tag {
+        background: rgba(230, 0, 18, 0.15);
+        color: #FF4D4D;
+        border: 1px solid rgba(230, 0, 18, 0.3);
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 0.725rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .status-indicator {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #A0A0A0;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #22C55E;
+        border-radius: 50%;
+        box-shadow: 0 0 8px #22C55E;
+    }
+
+    .nav-logo {
+        height: 34px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    /* ========================================================= */
+    /* 2. Sidebar Layout & Full-Width Header                     */
+    /* ========================================================= */
+    section[data-testid="stSidebar"] {
+        z-index: 99995 !important;
+        background-color: rgba(245, 245, 247, 0.98) !important;
+        border-right: 1px solid #EAEAEA;
+    }
+
+    /* Remove default Streamlit top padding */
+    div[data-testid="stSidebarContent"] {
+        padding-top: 0rem !important;
+    }
+
+    div[data-testid="stSidebarHeader"] {
+        padding: 0 !important;
+        margin: 0 !important;
+        height: 0px !important;
+        min-height: 0px !important;
+    }
+
+    /* Full-width Topmost Sidebar Banner with Gradient Accent Line */
+    .sidebar-header-banner {
+        position: relative;
+        height: 65px;
+        margin: 0 -1rem 1rem -1rem !important;
+        width: calc(100% + 2rem) !important;
+        background-color: rgba(20, 20, 20, 0.95);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Gradient line matching top navbar */
+    .sidebar-header-banner::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #E60012 0%, #005BAC 50%, #E60012 100%);
+    }
+
+    .sidebar-header-logo {
+        height: 32px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    /* Vertical Center Alignment for "Main Panel" & Collapse Arrow */
+    .sidebar-title-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 36px;
+        margin-bottom: 4px;
+    }
+
+    .sidebar-title-container h3 {
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 24px !important;
+        font-weight: 700 !important;
+        color: #1E1E1E !important;
+        line-height: 36px !important;
+    }
+
+    /* Position Collapse Button directly centered with Main Panel text */
+    [data-testid="stSidebarCollapseButton"] {
+        position: absolute !important;
+        top: 81px !important;
+        right: 16px !important;
+        z-index: 100005 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    [data-testid="stSidebarCollapseButton"] button {
+        background: rgba(0, 0, 0, 0.05) !important;
+        border-radius: 6px !important;
+        padding: 4px !important;
+        border: none !important;
+        color: #1E1E1E !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 32px !important;
+        width: 32px !important;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out !important;
+    }
+
+    section[data-testid="stSidebar"] [data-testid="stSidebarCollapseButton"] button svg {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        fill: #1E1E1E !important;
+        color: #1E1E1E !important;
+        transition: color 0.2s ease-in-out, fill 0.2s ease-in-out !important;
+    }
+
+    [data-testid="stSidebarCollapseButton"] button:hover {
+        background-color: #E60012 !important;
+    }
+
+    [data-testid="stSidebarCollapseButton"] button:hover svg {
+        fill: #FFFFFF !important;
+        color: #FFFFFF !important;
+    }
+
+    /* Tight Divider Styling */
+    hr.tight-divider {
+        margin: 6px 0 16px 0 !important;
+        border: 0;
+        border-top: 1px solid #E0E0E0;
+    }
+
+    /* ========================================================= */
+    /* KPI Metric Cards & UI Elements                            */
+    /* ========================================================= */
+    .metric-card {
+        background: #FFFFFF;
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        border: 1px solid #EAEAEA;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .metric-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .metric-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background-color: #E60012;
+    }
+
+    .metric-title {
+        color: #6C757D;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.4rem;
+    }
+
+    .metric-value {
+        color: #1E1E1E;
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .metric-badge {
+        display: inline-block;
+        padding: 0.2rem 0.55rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+    }
+
+    .badge-positive {
+        background-color: #E6F4EA;
+        color: #137333;
+    }
+
+    .badge-neutral {
+        background-color: #E8F0FE;
+        color: #1A73E8;
+    }
+
+    /* ========================================================= */
+    /* Fixed Footer (mirrors the top navbar)                     */
+    /* ========================================================= */
+    .bottom-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        min-height: 65px;
+        background: rgba(20, 20, 20, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px 32px;
+        padding: 10px 4rem;
+        z-index: 99990;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .bottom-footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #E60012 0%, #005BAC 50%, #E60012 100%);
+    }
+
+    .footer-left {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .footer-title {
+        color: #FFFFFF;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    .footer-title span {
+        color: #E60012;
+        font-weight: 700;
+    }
+
+    .footer-version {
+        color: #A0A0A0;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+
+    .footer-right {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+    }
+
+    .footer-label {
+        background: rgba(230, 0, 18, 0.15);
+        color: #FF4D4D;
+        border: 1px solid rgba(230, 0, 18, 0.3);
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 0.725rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .footer-member {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .footer-member-name {
+        color: #E6E6E6;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+
+    .footer-member-id {
+        background: rgba(255, 255, 255, 0.08);
+        color: #A0A0A0;
+        font-size: 0.68rem;
+        font-weight: 600;
+        padding: 1px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+    }
+
+    @media (max-width: 900px) {
+        .bottom-footer {
+            padding: 10px 1rem;
+        }
+        .block-container {
+            padding-bottom: 14rem !important;
+        }
+    }
+
+    /* ========================================================= */
+    /* Page Navigation Bar (sits right under the header)         */
+    /* ========================================================= */
+    .badge-negative {
+        background-color: #FCE8E6;
+        color: #C5221F;
+    }
+
+    .st-key-main_nav {
+        position: sticky;
+        top: 65px;
+        z-index: 99980;
+        background: #F8F9FA;
+        padding: 8px 0 12px 0;
+        margin-top: -1rem;
+    }
+
+    .st-key-main_nav div[role="radiogroup"] {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 6px;
+        width: 100%;
+        overflow-x: auto;
+        background: #FFFFFF;
+        border: 1px solid #EAEAEA;
+        border-radius: 12px;
+        padding: 6px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .st-key-main_nav label[data-baseweb="radio"] {
+        color: #1E1E1E !important;
+        flex: 1 1 0;
+        justify-content: center;
+        margin: 0 !important;
+        padding: 9px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+
+    /* hide the round radio indicator */
+    .st-key-main_nav label[data-baseweb="radio"] > div:first-child {
+        display: none !important;
+    }
+
+    .st-key-main_nav label[data-baseweb="radio"] p {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #444444;
+        transition: color 0.2s ease-in-out;
+    }
+
+    /* Hover = same look as the header buttons: red background, black text */
+    .st-key-main_nav label[data-baseweb="radio"]:hover {
+        background-color: #E60012;
+    }
+    .st-key-main_nav label[data-baseweb="radio"]:hover p {
+        color: #000000;
+    }
+
+    /* Active page: red background, white text */
+    .st-key-main_nav label[data-baseweb="radio"]:has(input:checked) {
+        background-color: #E60012;
+    }
+    .st-key-main_nav label[data-baseweb="radio"]:has(input:checked) p {
+        color: #FFFFFF;
+    }
+    

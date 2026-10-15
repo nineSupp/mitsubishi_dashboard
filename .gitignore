@@ -1,0 +1,17 @@
+# environment and caches
+.venv/
+__pycache__/
+*.pyc
+.vscode/
+
+# created on each computer (absolute paths), never commit
+*.lnk
+
+# data that is too big or produced locally
+data/final_dataset_main*.csv
+data/processed/
+data/added/
+outputs/_eval_*
+outputs/forecast_updated_*.csv
+outputs/inventory_updated.csv
+outputs/updated_info.json

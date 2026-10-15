@@ -1,0 +1,10 @@
+{
+  "generated": "2026-10-14",
+  "company_model": "gbm",
+  "trained_on": "FY2021-FY2024 (Apr 2021 - Mar 2025)",
+  "forecast_year": "FY2025 (Apr 2025 - Mar 2026)",
+  "compared_with": "TNIC_Data_2025.xlsx (real FY2025 orders)",
+  "outlier_cap_units": 229.0,
+  "revenue_definition": "Base price x quantity, Closed (\"Loss\") orders excluded",
+  "evaluation_file": "eval_all_folds.csv"
+}

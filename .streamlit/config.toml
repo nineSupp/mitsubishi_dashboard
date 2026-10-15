@@ -1,0 +1,10 @@
+# Presentation mode: hides the "Deploy" button and developer menu items, no usage tracking.
+[client]
+toolbarMode = "viewer"
+
+[browser]
+gatherUsageStats = false
+
+[server]
+# opens the browser automatically
+headless = false

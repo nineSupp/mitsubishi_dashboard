@@ -1,0 +1,4 @@
+# keep Windows scripts with Windows line endings (a .bat with LF line endings can fail)
+*.bat text eol=crlf
+*.command text eol=lf
+*.sh text eol=lf
